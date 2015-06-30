@@ -2,6 +2,7 @@
 
 var webpack = require('webpack');
 var path = require('path');
+var ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 module.exports = function(customConfig) {
   customConfig = customConfig || { plugins: [] };
@@ -13,6 +14,16 @@ module.exports = function(customConfig) {
   var jsLoader = 'babel-loader?stage=0&optional=runtime';
   if (customConfig.hot) {
     jsLoader = 'react-hot!' + jsLoader;
+  }
+
+  var cssLoader = 'style-loader!css-loader';
+  var lessLoader = 'style-loader!css-loader!less-loader';
+  var scssLoader = 'style-loader!css-loader!sass-loader';
+
+  if (customConfig.build) {
+    cssLoader = ExtractTextPlugin.extract(cssLoader);
+    lessLoader = ExtractTextPlugin.extract(lessLoader);
+    scssLoader = ExtractTextPlugin.extract(scssLoader);
   }
 
   var plugins = [
@@ -75,15 +86,15 @@ module.exports = function(customConfig) {
         },
         {
           test: /\.css$/,
-          loader: 'style-loader!css-loader'
+          loader: cssLoader
         },
         {
           test: /\.less$/,
-          loader: 'style-loader!css-loader!less-loader'
+          loader: lessLoader
         },
         {
           test: /\.(scss|sass)$/,
-          loader: 'style-loader!css-loader!sass-loader'
+          loader: scssLoader
         },
         {
           test: /\.(png|jpg|jpeg|gif|svg)$/,

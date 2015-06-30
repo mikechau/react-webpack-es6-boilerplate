@@ -5,12 +5,14 @@ var webpackConfig = require('./webpack.base.config');
 var CleanPlugin = require('clean-webpack-plugin');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 var StatsPlugin = require('stats-webpack-plugin');
+var ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 var buildDate = (new Date());
 
 var config = _.merge(
   webpackConfig({
     hot: false,
+    build: true,
     plugins: [
       new CleanPlugin(['build']),
       new webpack.optimize.DedupePlugin(),
@@ -24,6 +26,7 @@ var config = _.merge(
       }),
       new webpack.optimize.OccurenceOrderPlugin(),
       new webpack.optimize.AggressiveMergingPlugin(),
+      new ExtractTextPlugin('[name]-[hash].css'),
       new webpack.NoErrorsPlugin(),
       new HtmlWebpackPlugin({
         title: 'My React Application',
