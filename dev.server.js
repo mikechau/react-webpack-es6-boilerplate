@@ -3,6 +3,7 @@ var WebpackDevServer = require('webpack-dev-server');
 var config = require('./webpack.dev.server.config');
 
 new WebpackDevServer(webpack(config), {
+  hot: true,
   publicPath: config.output.publicPath,
   historyApiFallback: {
     index: './templates/dev/index.html'
