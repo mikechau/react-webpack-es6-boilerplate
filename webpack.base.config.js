@@ -98,15 +98,15 @@ module.exports = function(customConfig) {
         },
         {
           test: /\.(png|jpg|jpeg|gif|svg)$/,
-          loader: 'url-loader?limit=10000'
+          loader: 'url-loader?limit=10000&name=[name]-[hash].[ext]'
         },
         {
           test: /\.(woff|woff2)$/,
-          loader: 'url-loader?limit=10000'
+          loader: 'url-loader?limit=10000&name=[name]-[hash].[ext]'
         },
         {
           test: /\.(ttf|eot)$/,
-          loader: 'file-loader'
+          loader: 'file-loader?name=[name]-[hash].[ext]'
         },
         {
           test: /\.json$/,
@@ -118,7 +118,7 @@ module.exports = function(customConfig) {
         },
         {
           test: /\.(wav|mp3)$/,
-          loader: 'file-loader'
+          loader: 'file-loader?name=[name]-[hash].[ext]'
         },
         {
           test: /\.html$/,
