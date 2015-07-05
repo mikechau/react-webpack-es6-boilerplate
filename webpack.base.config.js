@@ -21,9 +21,9 @@ module.exports = function(customConfig) {
   var scssLoader = 'style-loader!css-loader!sass-loader';
 
   if (customConfig.build) {
-    cssLoader = ExtractTextPlugin.extract(cssLoader);
-    lessLoader = ExtractTextPlugin.extract(lessLoader);
-    scssLoader = ExtractTextPlugin.extract(scssLoader);
+    cssLoader = ExtractTextPlugin.extract('style-loader', 'css');
+    lessLoader = ExtractTextPlugin.extract('style-loader', 'css!less');
+    scssLoader = ExtractTextPlugin.extract('style-loader', 'css!sass');
   }
 
   var plugins = [
