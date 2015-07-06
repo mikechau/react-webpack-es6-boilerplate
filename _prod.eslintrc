@@ -137,7 +137,7 @@
     "no-console": 1,
     "space-before-function-paren": [2, {
       "named": "never",
-      "anonymous": "always"
+      "anonymous": "never"
     }],
     "func-names": 0,
     "consistent-this": [2, "this"],
