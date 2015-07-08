@@ -13,9 +13,9 @@
     "shrinkwrap:build": "npm-shrinkwrap --dev",
     "shrinkwrap:remove": "rm npm-shrinkwrap.json",
     "shrinkwrap:rebuild": "npm run shrinkwrap:remove && npm run package:reinstall && npm run shrinkwrap:build",
-    "test": "mocha --recursive --reporter spec --timeout 15000 --bail",
-    "test:watch": "mocha --recursive --reporter spec -w --timeout 15000 --bail",
-    "test:watch:browser": "mocha --recursive --reporter spec -w --timeout 15000 2>&1 --bail | report-viewer"
+    "test": "mocha **/*.spec.js --reporter spec --timeout 15000 --bail --require ./test/_lib/bootstrap",
+    "test:watch": "mocha **/*.spec.js --reporter spec -w --timeout 15000 --bail --require ./test/_lib/bootstrap",
+    "test:watch:browser": "mocha --recursive --reporter spec -w --timeout 15000 2>&1 --bail --require ./test/_lib/bootstrap | report-viewer"
   },
   "keywords": [],
   "author": "Michael Chau @mikechau",

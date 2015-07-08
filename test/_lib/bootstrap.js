@@ -1,5 +1,3 @@
-'use strict';
-
 process.env.NODE_ENV = 'test';
 
 global.babel = require('babel/register')({ stage: 0 });
@@ -9,7 +7,6 @@ global.sinon = require('sinon');
 global.nock = require('nock');
 global.TestUtils = React.addons.TestUtils;
 global.mockery = require('mockery');
-global.ReactTools = require('react-tools');
 
 global.ReactStub = React.createClass({
   displayName: 'StubClass',
