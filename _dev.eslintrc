@@ -8,12 +8,15 @@
   "env": {
     "browser": true,
     "node": true,
-    "mocha": true
+    "mocha": true,
+    "es6": true
   },
   "ecmaFeatures": {
-    "es6": true,
     "jsx": true,
     "modules": true
+  },
+  "globals": {
+    "expect": true
   },
   "rules": {
     /* airbnb javascript style guide rules */

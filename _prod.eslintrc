@@ -2,16 +2,14 @@
   "parser": "babel-eslint",
   "plugins": [
     "babel",
-    "react",
-    "mocha"
+    "react"
   ],
   "env": {
     "browser": true,
     "node": true,
-    "mocha": true
+    "es6": true
   },
   "ecmaFeatures": {
-    "es6": true,
     "jsx": true,
     "modules": true
   },
@@ -204,10 +202,6 @@
       "objectsInArrays": false,
       "objectsInObjects": false,
       "propertyName": false
-    }],
-
-    // mocha
-    "mocha/no-exclusive-tests": 2,
-    "mocha/handle-done-callback": 2
+    }]
   }
 }
