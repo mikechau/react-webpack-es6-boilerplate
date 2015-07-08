@@ -5,7 +5,7 @@
 ```
 Lifecycle scripts included in react-webpack-es6-boilerplate:
   test
-    npm run spec
+    npm run karma
 
 available via `npm run-script`:
   assets:build
@@ -47,11 +47,13 @@ available via `npm run-script`:
 
 ## testing
 
-Support for running tests only in **mocha** and via **karma**.
+Support for running tests in **mocha** and via **karma**.
 
-Update `test`, to run whatever test suite you prefer. By default it will run `spec`.
+Update `test`, to run whatever test suite you prefer. By default it will run `karma`.
 
 ### mocha
+
+Note: watching may not work properly due to `babel/register` being used as the transpilier in `bootstrap.js` and because of node caching `require`.
 
 Looks for files ending with `*.spec.js`, bootstraped via `test/_lib/bootstrap.js` (sets up globals).
 
@@ -60,6 +62,8 @@ Looks for files ending with `*.spec.js`, bootstraped via `test/_lib/bootstrap.js
 - `npm run spec:watch:browser` - run mocha tests continuously, watches for updates, with inbrowser reporter
 
 ### karma
+
+Run the test by default inside `PhantomJS`, could be configured to also run in `Chrome` and `Firefox`.
 
 - `npm run karma` - run karma
 - `npm run karma:watch` - run karma continuously, watches for updates
