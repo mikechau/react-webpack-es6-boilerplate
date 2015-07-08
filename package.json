@@ -16,7 +16,7 @@
     "spec": "mocha ./test/**/*.spec.js --reporter spec --timeout 15000 --bail --require ./test/_lib/bootstrap.js",
     "spec:watch": "mocha ./test/**/*.spec.js --reporter spec -w --timeout 15000 --bail --require ./test/_lib/bootstrap.js",
     "spec:watch:browser": "mocha ./test/**/*.spec.js --reporter spec -w --timeout 15000 2>&1 --bail --require ./test/_lib/bootstrap.js | report-viewer",
-    "test": "npm run spec",
+    "test": "npm run karma",
     "karma": "karma start",
     "karma:watch": "karma start --auto-watch --no-single-run"
   },

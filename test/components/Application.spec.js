@@ -6,7 +6,6 @@ describe('Application', () => {
     shallowRenderer.render(<Application />);
 
     const component = shallowRenderer.getRenderOutput();
-
     expect(component.type).to.equal('div');
   });
 });
