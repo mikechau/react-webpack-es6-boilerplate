@@ -3,6 +3,7 @@
 var webpack = require('webpack');
 var path = require('path');
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
+var _ = require('lodash');
 
 module.exports = function(customConfig) {
   customConfig = customConfig || { plugins: [] };
@@ -39,6 +40,10 @@ module.exports = function(customConfig) {
     plugins = plugins.concat(customConfig.plugins);
   }
 
+  var alias = _.merge({
+    app: path.join(__dirname, 'src')
+  }, customConfig.alias);
+
   return ({
     output: {
       path: path.join(__dirname, 'build', 'assets'),
@@ -64,7 +69,8 @@ module.exports = function(customConfig) {
     resolve: {
       root: path.join(__dirname, 'src'),
       modulesDirectories: ['node_modules'],
-      extensions: ['', '.js', '.jsx']
+      extensions: ['', '.js', '.jsx'],
+      alias: alias
     },
 
     resolveLoader: { root: path.join(__dirname, 'node_modules') },

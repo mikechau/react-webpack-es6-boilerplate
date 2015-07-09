@@ -17,11 +17,11 @@ module.exports = function karmaConfig(config) {
 
     files: [
       'node_modules/phantomjs-polyfill/bind-polyfill.js',
-      'test/**/*.test.*'
+      'test/_lib/browser-tests.index.js'
     ],
 
     preprocessors: {
-      'test/**/*.test.*': ['webpack', 'sourcemap']
+      'test/_lib/browser-tests.index.js': ['webpack', 'sourcemap']
     },
 
     browsers: [

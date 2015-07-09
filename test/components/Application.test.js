@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactTestUtils from 'react/lib/ReactTestUtils';
-import Application from '../../src/components/Application';
+import Application from 'app/components/Application';
 
 describe('Application', () => {
   it('renders a div', () => {

@@ -1,3 +1,5 @@
+/* eslint-disable */
+
 process.env.NODE_ENV = 'test';
 
 global.babel = require('babel/register')({ stage: 0 });

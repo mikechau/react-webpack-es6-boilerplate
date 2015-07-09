@@ -1,3 +1,5 @@
+/* eslint-disable */
+
 module.exports = function() {
   global.before(function(next) {
     mockery.enable({
