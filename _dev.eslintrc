@@ -26,7 +26,10 @@
     // variables
     "no-shadow": 1,
     "no-shadow-restricted-names": 1,
-    "no-unused-vars": 1,
+    "no-unused-vars": [1, {
+      "vars": "all",
+      "args": "none"
+    }],
     "no-use-before-define": [1, "nofunc"],
     // possible errors
     "comma-dangle": 0,
