@@ -6,7 +6,7 @@ var config = _.merge(
   webpackConfig({
     hot: false,
     test: true,
-    eslintrcPath: './_dev.eslintrc'
+    eslintrcPath: './_test.eslintrc'
   }),
   {
     output: {},

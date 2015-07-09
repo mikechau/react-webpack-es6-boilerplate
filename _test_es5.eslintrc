@@ -2,22 +2,27 @@
   "parser": "babel-eslint",
   "plugins": [
     "babel",
-    "react"
+    "react",
+    "mocha"
   ],
   "env": {
     "browser": true,
     "node": true,
-    "es6": true
+    "mocha": true,
+    "es6": false
   },
   "ecmaFeatures": {
     "jsx": true,
-    "modules": true
+    "modules": false
+  },
+  "globals": {
+    "expect": true
   },
   "rules": {
     /* airbnb javascript style guide rules */
     "strict": [1, "never"],
     // es6
-    "no-var": 1,
+    "no-var": 0,
     // variables
     "no-shadow": 1,
     "no-shadow-restricted-names": 1,
@@ -83,7 +88,7 @@
     "no-throw-literal": 1,
     "no-with": 1,
     "radix": 1,
-    "vars-on-top": 1,
+    "vars-on-top": 0,
     "wrap-iife": [1, "any"],
     "yoda": 1,
     // style
@@ -202,6 +207,11 @@
       "objectsInArrays": false,
       "objectsInObjects": false,
       "propertyName": false
-    }]
+    }],
+
+    // mocha
+    "mocha/no-exclusive-tests": 1,
+    "mocha/handle-done-callback": 1,
+    no-unused-expressions: 0
   }
 }

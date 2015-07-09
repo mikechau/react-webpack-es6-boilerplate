@@ -145,7 +145,9 @@ module.exports = function(customConfig) {
     plugins: plugins,
 
     eslint: {
-      configFile: customConfig.eslintrcPath || path.join(__dirname, '.eslintrc')
+      configFile: customConfig.eslintrcPath || path.join(__dirname, '.eslintrc'),
+      emitError: customConfig.build,
+      emitWarning: customConfig.test
     }
   });
 };

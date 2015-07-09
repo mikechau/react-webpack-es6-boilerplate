@@ -2,21 +2,16 @@
   "parser": "babel-eslint",
   "plugins": [
     "babel",
-    "react",
-    "mocha"
+    "react"
   ],
   "env": {
     "browser": true,
     "node": true,
-    "mocha": true,
     "es6": false
   },
   "ecmaFeatures": {
     "jsx": true,
     "modules": false
-  },
-  "globals": {
-    "expect": true
   },
   "rules": {
     /* airbnb javascript style guide rules */
@@ -207,10 +202,6 @@
       "objectsInArrays": false,
       "objectsInObjects": false,
       "propertyName": false
-    }],
-
-    // mocha
-    "mocha/no-exclusive-tests": 1,
-    "mocha/handle-done-callback": 1
+    }]
   }
 }
