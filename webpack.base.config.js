@@ -31,7 +31,8 @@ module.exports = function(customConfig) {
       'process.env': {
       NODE_ENV: JSON.stringify(process.env.NODE_ENV || customConfig.nodeEnv || 'development')
       }
-    })
+    }),
+    new webpack.NoErrorsPlugin()
   ];
 
   if (customConfig.plugins && customConfig.plugins.length) {
