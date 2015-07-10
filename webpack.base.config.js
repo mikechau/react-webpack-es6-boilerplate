@@ -17,6 +17,10 @@ module.exports = function(customConfig) {
     jsLoader = 'react-hot!' + jsLoader;
   }
 
+  if (customConfig.test) {
+    jsLoader = jsLoader + '&plugins=babel-plugin-rewire';
+  }
+
   var cssLoader = 'style-loader!css-loader';
   var lessLoader = 'style-loader!css-loader!less-loader';
   var scssLoader = 'style-loader!css-loader!sass-loader';
