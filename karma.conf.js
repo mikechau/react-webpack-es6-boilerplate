@@ -12,7 +12,7 @@ module.exports = function karmaConfig(config) {
     ],
 
     reporters: [
-      'spec'
+      'mocha'
     ],
 
     files: [
@@ -42,6 +42,10 @@ module.exports = function karmaConfig(config) {
         hash: false
       }
     },
+
+    colors: true,
+    captureTimeout: 60000,
+    browserNoActivityTimeout: 45000,
 
     customLaunchers: {
       PhantomJS_debug: {

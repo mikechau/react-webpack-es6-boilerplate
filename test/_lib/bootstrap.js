@@ -7,7 +7,7 @@ global.expect = require('chai').expect;
 global.React = require('react/addons');
 global.sinon = require('sinon');
 global.nock = require('nock');
-global.TestUtils = React.addons.TestUtils;
+global.ReactTestUtils = React.addons.TestUtils;
 global.mockery = require('mockery');
 
 global.ReactStub = React.createClass({

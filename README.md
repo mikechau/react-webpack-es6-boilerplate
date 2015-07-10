@@ -12,14 +12,20 @@ available via `npm run-script`:
     NODE_ENV=production webpack --config ./webpack.build.config.js --progress --profile --colors
   assets:serve
     NODE_ENV=development webpack-dev-server --config ./webpack.hot.assets.config.js --hot --progress --colors --port 2992 --inline --host 0.0.0.0
-  packages:purge
+  karma
+    karma start
+  karma:watch
+    npm run karma -- --auto-watch --no-single-run
+  karma:all
+    npm run karma -- --browsers=PhantomJS,Chrome,Firefox
+  package:purge
     rm -rf node_modules
-  packages:reinstall
-    npm run packages:purge && npm install
-  packages:updates
-    npm-check-updates
-  packages:upgrade
-    npm-check-updates -u
+  package:reinstall
+    npm run package:purge && npm install
+  package:updates
+    npm-check-updates -f '/^(?!npm-shrinkwrap).*$/'
+  package:upgrade
+    npm-check-updates -u -f '/^(?!npm-shrinkwrap).*$/'
   server:dev
     NODE_ENV=development node ./dev.server.js
   shrinkwrap:build
@@ -28,16 +34,14 @@ available via `npm run-script`:
     rm npm-shrinkwrap.json
   shrinkwrap:rebuild
     npm run shrinkwrap:remove && npm run package:reinstall && npm run shrinkwrap:build
+  shrinkwrap:upgrade
+    npm upgrade npm-shrinkwrap@200 --save-dev
   spec
     mocha ./test/**/*.spec.js --reporter spec --timeout 15000 --bail --require ./test/_lib/bootstrap.js
   spec:watch
-    mocha ./test/**/*.spec.js --reporter spec -w --timeout 15000 --bail --require ./test/_lib/bootstrap.js
+    npm run spec -- -w
   spec:watch:browser
-    mocha ./test/**/*.spec.js --reporter spec -w --timeout 15000 2>&1 --bail --require ./test/_lib/bootstrap.js | report-viewer
-  karma
-    karma start
-  karma:watch
-    karma start --auto-watch --no-single-run
+    npm run spec:watch -- 2>&1 --bail --require ./test/_lib/bootstrap.js | report-viewer --port 9123
 ```
 
 ## development
@@ -57,16 +61,19 @@ Note: watching may not work properly due to `babel/register` being used as the t
 
 Looks for files ending with `*.spec.js`, bootstraped via `test/_lib/bootstrap.js` (sets up globals).
 
-- `npm run spec` - run mocha tests
-- `npm run spec:watch` - run mocha tests continuously, watches for updates
-- `npm run spec:watch:browser` - run mocha tests continuously, watches for updates, with inbrowser reporter
+`jsdom` is used to simulate the dom, it should stay at v3 unless you are using io.js.
+
+- `npm run spec` - run mocha tests.
+- `npm run spec:watch` - run mocha tests continuously, watches for updates.
+- `npm run spec:watch:browser` - run mocha tests continuously, watches for updates, with inbrowser reporter.
 
 ### karma
 
 Run the test by default inside `PhantomJS`, could be configured to also run in `Chrome` and `Firefox`.
 
-- `npm run karma` - run karma
-- `npm run karma:watch` - run karma continuously, watches for updates
+- `npm run karma` - run karma.
+- `npm run karma:watch` - run karma continuously, watches for updates.
+- `npm run karma:all` - run karma for Chrome, Firefox, and PhantomJS.
 
 ## production
 
@@ -74,8 +81,20 @@ Run the test by default inside `PhantomJS`, could be configured to also run in `
 
 ## shrinkwrapping
 
-You should update the `npm-shrinkwrap.json` file by running the `npm run shrinkwrap:build` command. Run it when adding new or updating packages in your `package.json`.
+**npm-shrinkwrap** is set to version 200, because I am assuming you have npm v2.
+
+You should update the `npm-shrinkwrap.json` file by running the `npm run shrinkwrap:build` command. Run it when adding new or updating package in your `package.json`.
 
 - `npm run shrinkwrap:build` - generate a `npm-shrinkwrap.json`.
-- `npm run shrinkwrap:rebuild` - rebuilds the `npm-shrinkwrap.json`, after reinstalling `node_modules`.
+- `npm run shrinkwrap:rebuild` - removes `npm-shrinkwrap.json`, reinstall npm package, generates new `npm-shrinkwrap.json`.
 - `npm run shrinkwrap:remove` - remove `npm-shrinkwrap.json`.
+- `npm run shrinkwrap:update` - update `npm-shrinkwrap@200` (for npm version 2).
+
+## maintaining package
+
+By default, the `package:updates` and `package:upgrade` commands are set to filter out `npm-shrinkwrap`, to lock it to `v200+`.
+
+- `npm run package:updates` - list package that may be outdated.
+- `npm run package:upgrade` - updates all the package versions in `package.json`.
+- `npm run package:purge` - removes your `node_modules` folder.
+- `npm run package:reinstall` - removes your `node_modules` folder and does a `npm install`.
