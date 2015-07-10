@@ -17,6 +17,7 @@ module.exports = function karmaConfig(config) {
 
     files: [
       'node_modules/phantomjs-polyfill/bind-polyfill.js',
+      'test/_lib/phantomjs-click-polyfill.js',
       'test/_lib/browser-tests.index.js'
     ],
 
@@ -40,6 +41,17 @@ module.exports = function karmaConfig(config) {
         modules: false,
         hash: false
       }
+    },
+
+    customLaunchers: {
+      PhantomJS_debug: {
+        base: 'PhantomJS',
+        debug: true
+      }
+    },
+
+    phantomjsLauncher: {
+      exitOnResourceError: true
     }
   })
 }

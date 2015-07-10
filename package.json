@@ -18,7 +18,8 @@
     "spec:watch:browser": "mocha ./test/**/*.spec.js --reporter spec -w --timeout 15000 2>&1 --bail --require ./test/_lib/bootstrap.js | report-viewer",
     "test": "npm run karma",
     "karma": "karma start",
-    "karma:watch": "karma start --auto-watch --no-single-run"
+    "karma:watch": "karma start --auto-watch --no-single-run",
+    "karma:all": "karma start --browsers=PhantomJS,Chrome,Firefox"
   },
   "keywords": [],
   "author": "Michael Chau @mikechau",
@@ -61,7 +62,6 @@
     "karma-sinon": "^1.0.4",
     "karma-sinon-chai": "^1.0.0",
     "karma-sourcemap-loader": "^0.3.5",
-    "karma-spec-reporter": "0.0.19",
     "karma-webpack": "^1.5.1",
     "less": "^2.5.1",
     "less-loader": "^2.2.0",
