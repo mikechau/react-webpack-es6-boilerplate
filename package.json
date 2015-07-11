@@ -6,7 +6,7 @@
     "assets:build": "NODE_ENV=production webpack --config ./webpack.build.config.js --progress --profile --colors",
     "assets:serve": "NODE_ENV=development webpack-dev-server --config ./webpack.hot.assets.config.js --hot --progress --colors --port 2992 --inline --host 0.0.0.0",
     "karma": "karma start",
-    "karma:chrome": "npm run karma -- --browsers=Chrome",
+    "karma:server": "npm run karma -- --browsers=PhantomJS",
     "karma:watch": "npm run karma -- --auto-watch --no-single-run",
     "karma:all": "npm run karma -- --browsers=PhantomJS,Chrome,Firefox",
     "package:purge": "rm -rf node_modules",
