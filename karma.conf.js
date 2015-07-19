@@ -5,10 +5,10 @@ var webpackConfig = require('./webpack.karma.config');
 module.exports = function karmaConfig(config) {
   config.set({
     frameworks: [
-      'mocha',
-      'chai',
+      'sinon-chai',
       'sinon',
-      'sinon-chai'
+      'chai',
+      'mocha'
     ],
 
     reporters: [
