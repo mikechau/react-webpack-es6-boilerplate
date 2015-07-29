@@ -12,7 +12,7 @@ module.exports = function(customConfig) {
     customConfig.plugins = [];
   }
 
-  var jsLoader = 'babel-loader?stage=0&optional=runtime';
+  var jsLoader = 'babel-loader?stage=0&optional[]=runtime';
   if (customConfig.hot) {
     jsLoader = 'react-hot!' + jsLoader;
   }
