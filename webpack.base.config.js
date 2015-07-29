@@ -104,7 +104,7 @@ module.exports = function(customConfig) {
           loader: lessLoader
         },
         {
-          test: /\.(scss|sass)$/,
+          test: /\.scss$/,
           loader: scssLoader
         },
         {
