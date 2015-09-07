@@ -187,8 +187,7 @@
     "react/wrap-multilines": 1,
 
     // babel
-    "block-scoped-var": 0,
-    "babel/block-scoped-var": 1,
+    "block-scoped-var": 1,
     "object-shorthand": 0,
     "babel/object-shorthand": 1,
     "generator-star": 0,
