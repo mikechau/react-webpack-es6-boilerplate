@@ -190,14 +190,18 @@
     "babel/new-cap": [1, {
       "newIsCap": true
     }],
-    "space-in-brackets": 0,
-    "babel/space-in-brackets": [1, "never", {
-      "arraysInArrays": false,
-      "arraysInObjects": false,
+    "object-curly-spacing": 0,
+    "babel/object-curly-spacing": [1, "never", {
+      "objectsInObjects": false,
+      "arraysInObjects": false
+    }],
+    "computed-property-spacing": [1, "never"],
+    "array-bracket-spacing": [1, "never", {
       "singleValue": false,
       "objectsInArrays": false,
-      "objectsInObjects": false,
-      "propertyName": false
-    }]
+      "arraysInArrays": false
+    }],
+    "arrow-parens": 0,
+    "babel/arrow-parens": 1
   }
 }
