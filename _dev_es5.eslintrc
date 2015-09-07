@@ -43,7 +43,11 @@
     "no-invalid-regexp": 1,
     "no-irregular-whitespace": 1,
     "no-obj-calls": 1,
-    "no-reserved-keys": 1,
+    "quote-props": [1, "as-needed", {
+      "keywords": true,
+      "unnecessary": true,
+      "numbers": false
+    }],
     "no-sparse-arrays": 1,
     "no-unreachable": 1,
     "use-isnan": 1,
@@ -185,7 +189,10 @@
     "block-scoped-var": 1,
     "object-shorthand": 0,
     "babel/object-shorthand": 1,
-    "babel/generator-star-spacing": [1, {"before": false, "after": true}],
+    "babel/generator-star-spacing": [1, {
+      "before": false,
+      "after": true
+    }],
     "new-cap": 0,
     "babel/new-cap": [1, {
       "newIsCap": true
